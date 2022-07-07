@@ -1,10 +1,16 @@
 ---
-const { url } = Astro.props;
+const { url, target } = Astro.props;
 ---
 
-<a href={url}>
-  <slot></slot>
-</a>
+{target ? (
+  <a href={url} target={target}>
+    <slot />
+  </a>
+) : (
+  <a href={url}>
+    <slot />
+  </a>
+)}
 
 <style>
   a {
