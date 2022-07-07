@@ -1,7 +1,9 @@
 ---
 import Link from '../atoms/Link.astro';
 import Logo from '../atoms/Logo.astro';
-import Navigation from '../atoms/Navigation.astro';
+import Navigation from '../molecules/Navigation.astro';
+
+const { slug } = Astro.props;
 ---
 
 <header>
@@ -9,7 +11,7 @@ import Navigation from '../atoms/Navigation.astro';
     <Link url='//gullsmed-morken.no'>
       <Logo />
     </Link>
-    <Navigation />
+    <Navigation slug={slug} />
   </div>
 </header>
 
