@@ -9,6 +9,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
+    "@netlify/plugin-lighthouse": "^2.1.3",
     "astro": "^1.0.0-beta.64"
   },
   "dependencies": {
