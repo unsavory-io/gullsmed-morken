@@ -1,0 +1,14 @@
+:root {
+  --bg-site: 53 69% 97%;
+
+  --clr-text: 224 92% 15%;
+
+  --ff-body: 'Cormorant Infant', serif;
+}
+
+body {
+  background-color: hsl(var(--bg-site, 0 100% 100%));
+  color: hsl(var(--clr-text, 0 0% 0%));
+  font-family: var(--ff-body);
+  font-weight: 400;
+}

@@ -1,0 +1,37 @@
+<nav>
+  <ul>
+    <li><a href=''>Produkter</a></li>
+    <li><a href=''>Diamanter</a></li>
+    <li><a href=''>Tips</a></li>
+    <li><a href=''>Vår butikk</a></li>
+    <li><a href=''>Kontakt</a></li>
+    <li><a href=''>Åpningstider</a></li>
+  </ul>
+</nav>
+<button type='button'>Åpne</button>
+
+<style lang='scss'>
+  nav {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: flex;
+    }
+  }
+
+  li:nth-last-child(-n + 2) {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: revert;
+    }
+  }
+
+  button[type='button'] {
+    display: flex;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+</style>

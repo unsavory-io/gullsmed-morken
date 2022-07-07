@@ -1,19 +1,36 @@
 ---
-import Logo from "../atoms/Logo.astro";
-import Link from "../atoms/Link.astro";
+import '../styles/reset.css';
+import '../styles/global.css';
+
+import Header from '../organisms/Header.astro';
+import Footer from '../organisms/Footer.astro';
 ---
 
-<html lang="nb-NO">
+<html lang='nb-NO'>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width' />
     <title>Gullsmed Morken</title>
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;400;600&display=swap'
+      rel='stylesheet'
+    />
   </head>
 
   <body>
-    <Link url="//gullsmed-morken.no">
-      <Logo />
-    </Link>
-    <h1>Gullsmed Morken</h1>
+    <Header />
+    <main>
+      <h1>Gullsmed Morken</h1>
+      <h2>100 år med tradisjon og lidenskap i hjertet av Trondheim</h2>
+    </main>
+    <Footer />
+    <style lang='scss'>
+      main {
+        @include grid;
+        margin-block: 4rem;
+      }
+    </style>
   </body>
 </html>

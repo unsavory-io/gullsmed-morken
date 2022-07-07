@@ -1,0 +1,5 @@
+---
+const { phone } = Astro.props;
+---
+
+<a href={'tel:' + phone.replaceAll(' ', '')}>{phone}</a>
