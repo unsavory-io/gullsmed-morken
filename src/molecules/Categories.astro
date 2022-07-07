@@ -1,0 +1,28 @@
+---
+import { SanityClient } from '../lib/sanity';
+const items = await SanityClient.fetch(
+  '*[ _type == "productCategory" ]{name, slug}'
+).then((res) =>
+  res
+    .filter((e) => e.slug !== null)
+    .sort((a, b) => (a.slug.current > b.slug.current ? 1 : -1))
+);
+
+const { current } = Astro.props;
+---
+
+<h3>Kategorier</h3>
+<ul>
+  <li><a href='/produkter'>Alle</a></li>
+  {items.map((item) => (
+    <li class={current === item.slug.current ? 'is-current' : ''}>
+      <a href={`/kategorier/${item.slug.current}/`}>{item.name}</a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  ul {
+    border: 6px solid orchid;
+  }
+</style>

@@ -1,36 +1,35 @@
 ---
-import '../styles/reset.css';
-import '../styles/global.css';
+import { SanityClient, SanityImage, SanityBlocks } from '../lib/sanity';
+import PageLayout from '../templates/PageLayout.astro';
+import PageListing from '../molecules/PageListing.astro';
+import ProductListing from '../molecules/ProductListing.astro';
 
-import Header from '../organisms/Header.astro';
-import Footer from '../organisms/Footer.astro';
+const item = await SanityClient.fetch('*[ _type == "front-page" ]').then(
+  (res) => ({
+    ...res[0],
+    body: SanityBlocks({
+      blocks: res[0].body,
+    }),
+  })
+);
+
+const pages = await SanityClient.fetch(
+  `*[ _type == "page"][0...4]{_id, title, image, slug}`
+).then((res) => res);
+const products = await SanityClient.fetch(
+  `*[ _type == "product"][0...4]{_id, name, price, image, slug}`
+).then((res) => res);
 ---
 
-<html lang='nb-NO'>
-  <head>
-    <meta charset='utf-8' />
-    <meta name='viewport' content='width=device-width' />
-    <title>Gullsmed Morken</title>
-    <link rel='preconnect' href='https://fonts.googleapis.com' />
-    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-    <link
-      href='https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;400;600&display=swap'
-      rel='stylesheet'
-    />
-  </head>
+<PageLayout title={item.title} slug=''>
+  {item.image ? <img src={SanityImage(item.image).width(800).url()} /> : ''}
+  <div class='content' set:html='item.body'></div>
 
-  <body>
-    <Header />
-    <main>
-      <h1>Gullsmed Morken</h1>
-      <h2>100 år med tradisjon og lidenskap i hjertet av Trondheim</h2>
-    </main>
-    <Footer />
-    <style lang='scss'>
-      main {
-        @include grid;
-        margin-block: 4rem;
-      }
-    </style>
-  </body>
-</html>
+  <h3>Artikler</h3>
+  <PageListing items={pages} />
+
+  <h3>Produkter</h3>
+  <ProductListing items={products} />
+  <h1>Gullsmed Morken</h1>
+  <h2>100 år med tradisjon og lidenskap i hjertet av Trondheim</h2>
+</PageLayout>

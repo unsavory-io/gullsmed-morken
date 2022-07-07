@@ -17,9 +17,15 @@ import Navigation from '../atoms/Navigation.astro';
   header {
     background-color: white; // var
     border-block-end: 1px solid silver;
+    block-size: var(--header-height, 3.5rem);
+    display: flex;
+    align-items: center;
   }
 
   div {
     @include grid;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
   }
 </style>

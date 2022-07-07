@@ -1,0 +1,24 @@
+---
+import { SanityClient } from '../../lib/sanity';
+import PageLayout from '../../templates/PageLayout.astro';
+import Categories from '../../molecules/Categories.astro';
+import Pagination from '../../molecules/Pagination.astro';
+import ProductListing from '../../molecules/ProductListing.astro';
+
+export async function getStaticPaths({ paginate }) {
+  const items = await SanityClient.fetch(
+    '*[ _type == "product" ]{name, slug, price, image, description, categories[]->{name, slug}} | order(_createdAt desc) '
+  ).then((res) => res);
+  return paginate(items, { pageSize: 4 });
+}
+
+const { page } = Astro.props;
+---
+
+<PageLayout title='Produkter' slug='produkter'>
+  <Categories />
+
+  <h2>Produkter</h2>
+  <ProductListing items={page.data} />
+  <Pagination url={page.url} />
+</PageLayout>

@@ -1,0 +1,15 @@
+---
+import PageCard from '../molecules/PageCard.astro';
+
+const { items } = Astro.props;
+---
+
+<div class='listing'>
+  {items.map((item) => <PageCard item={item} />)}
+</div>
+
+<style>
+  .listing {
+    border: 3px solid green;
+  }
+</style>

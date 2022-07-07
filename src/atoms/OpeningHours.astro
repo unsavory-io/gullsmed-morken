@@ -1,10 +1,35 @@
+---
+import { SanityClient } from '../lib/sanity';
+
+const hours = await SanityClient.fetch('*[ _type == "settingsOpening" ]').then(
+  (res) => res[0]
+);
+
+const day = new Date().getDay();
+console.log('dag', day);
+---
+
 <dl>
-  <dt>Mandag&mdash;Onsdag</dt>
-  <dd>10.00&mdash;17.00</dd>
-  <dt>Torsdag</dt>
-  <dd>10.00&mdash;18.00</dd>
-  <dt>Fredag&mdash;Lørdag</dt>
-  <dd>10.00&mdash;17.00</dd>
-  <dt>Søndag</dt>
-  <dd>Stengt</dd>
+  <dt>Mandag:</dt>
+  <dd>{hours.monday}</dd>
+  <dt>Tirsdag:</dt>
+  <dd>{hours.tuesday}</dd>
+  <dt>Onsdag:</dt>
+  <dd>{hours.wednesday}</dd>
+  <dt>Torsdag:</dt>
+  <dd>{hours.thursday}</dd>
+  <dt>Fredag:</dt>
+  <dd>{hours.friday}</dd>
+  <dt>Lørdag:</dt>
+  <dd>{hours.saturday}</dd>
+  <dt>Søndag:</dt>
+  <dd>{hours.sunday}</dd>
 </dl>
+
+<style>
+  dl {
+    column-gap: 0.5em;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+  }
+</style>

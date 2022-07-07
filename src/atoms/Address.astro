@@ -1,10 +1,13 @@
 ---
-const streetAddress = 'Dronningens gate 14';
-const entraceFrom = 'Nordre gate';
-const zip = '7011';
-const city = 'Trondheim';
+import { SanityClient } from '../lib/sanity';
+
+const contact = await SanityClient.fetch(
+  '*[ _type == "settingsContact" ]'
+).then((res) => res[0]);
 ---
 
 <address>
-  {streetAddress}<br />{zip}&nbsp;{city}
+  {contact.address}
+  {contact.zip}
+  {contact.city}
 </address>

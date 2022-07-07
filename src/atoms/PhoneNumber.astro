@@ -1,5 +1,9 @@
 ---
-const { phone } = Astro.props;
+import { SanityClient } from '../lib/sanity';
+
+const contact = await SanityClient.fetch(
+  '*[ _type == "settingsContact" ]'
+).then((res) => res[0]);
 ---
 
-<a href={'tel:' + phone.replaceAll(' ', '')}>{phone}</a>
+<a href={'tel:' + contact.phone.replaceAll(' ', '')}>{contact.phone}</a>
