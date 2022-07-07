@@ -1,0 +1,13 @@
+---
+const { url } = Astro.props;
+---
+
+<a href={url}>
+  <slot></slot>
+</a>
+
+<style>
+  a {
+    display: inherit;
+  }
+</style>
