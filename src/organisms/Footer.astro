@@ -1,0 +1,28 @@
+---
+import Logo from '../atoms/Logo.astro';
+import Address from '../atoms/Address.astro';
+import OpeningHours from '../atoms/OpeningHours.astro';
+import PhoneNumber from '../atoms/PhoneNumber.astro';
+import SoMe from '../molecules/SoMe.astro';
+---
+
+<footer>
+  <div>
+    <Logo />
+    <SoMe />
+    <Address />
+    <PhoneNumber />
+    <OpeningHours />
+  </div>
+</footer>
+
+<style lang='scss'>
+  footer {
+    background-color: white; // var
+    padding-block: 2rem;
+  }
+
+  div {
+    @include grid;
+  }
+</style>

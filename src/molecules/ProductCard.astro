@@ -1,0 +1,35 @@
+---
+import { SanityImage } from '../lib/sanity';
+const { item } = Astro.props;
+const categories = item.categories
+  ? item.categories.filter((e) => e.slug != null)
+  : [];
+---
+
+<div class='card card__product'>
+  <a href={`/produkt/${item.slug.current}/`}>
+    <figure>
+      {item.image ? <img src={SanityImage(item.image).width(250).url()} /> : ''}
+    </figure>
+  </a>
+  {categories ? (
+    <ul class="tags">
+      {categories.map((category) => (
+        <li>
+          <a href={`/kategorier/${category.slug.current}/`}>{category.name}</a>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    ''
+  )}
+  <h3>{item.name}</h3>
+  <span>Pris: {item.price},-</span>
+  <p>{item.description}</p>
+</div>
+
+<style>
+  .card {
+    border: 3px solid blue;
+  }
+</style>

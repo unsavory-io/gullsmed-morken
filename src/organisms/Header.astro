@@ -1,0 +1,33 @@
+---
+import Link from '../atoms/Link.astro';
+import Logo from '../atoms/Logo.astro';
+import Navigation from '../molecules/Navigation.astro';
+
+const { slug } = Astro.props;
+---
+
+<header>
+  <div>
+    <Link url='//gullsmed-morken.no'>
+      <Logo />
+    </Link>
+    <Navigation slug={slug} />
+  </div>
+</header>
+
+<style lang='scss'>
+  header {
+    background-color: white; // var
+    border-block-end: 1px solid silver;
+    block-size: var(--header-height, 3.5rem);
+    display: flex;
+    align-items: center;
+  }
+
+  div {
+    @include grid;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
