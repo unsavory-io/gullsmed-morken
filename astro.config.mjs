@@ -1,16 +1,10 @@
 import { defineConfig } from 'astro/config';
-import vue from '@astrojs/vue';
+import mdx from '@astrojs/mdx';
+
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [vue()],
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: `@import "src/styles/mixins.scss";`,
-        },
-      },
-    },
-  },
+	site: 'https://example.com',
+	integrations: [mdx(), sitemap()],
 });

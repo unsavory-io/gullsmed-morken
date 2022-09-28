@@ -1,78 +1,67 @@
-:root {
-  --bg-site: 53 69% 97%;
-
-  --clr-text: 224 92% 15%;
-
-  --ff-body: 'Cormorant Infant', serif;
-}
-
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
 body {
-  background-color: hsl(var(--bg-site, 0 100% 100%));
-  color: hsl(var(--clr-text, 0 0% 0%));
-  font-family: var(--ff-body, sans-serif);
-  font-weight: 400;
+	font-family: Verdana, sans-serif;
+	margin: auto;
+	padding: 20px;
+	max-width: 65ch;
+	text-align: left;
+	background-color: #fff;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	line-height: 1.5;
+	color: #444;
 }
-
-/*
-	Improved screen reader only CSS class
-	@author Gaël Poupard
-		@note Based on Yahoo!'s technique
-		@author Thierry Koblentz
-		@see https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html
-	* 1.
-		@note `clip` is deprecated but works everywhere
-		@see https://developer.mozilla.org/en-US/docs/Web/CSS/clip
-	* 2.
-		@note `clip-path` is the future-proof version, but not very well supported yet
-		@see https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
-		@see http://caniuse.com/#search=clip-path
-		@author Yvain Liechti
-		@see https://twitter.com/ryuran78/status/778943389819604992
-	* 3.
-		@note preventing text to be condensed
-		author J. Renée Beach
-		@see https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
-		@note Drupal 8 goes with word-wrap: normal instead
-		@see https://www.drupal.org/node/2045151
-		@see http://cgit.drupalcode.org/drupal/commit/?id=5b847ea
-	* 4.
-		@note !important is important
-		@note Obviously you wanna hide something
-		@author Harry Roberts
-		@see https://csswizardry.com/2016/05/the-importance-of-important/
-*/
-
-.sr-only {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important; /* 2 */
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important; /* 3 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b {
+	color: #222;
 }
-
-/*
-	Use in conjunction with .sr-only to only display content when it's focused.
-	@note Useful for skip links
-	@see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
-	@note Based on a HTML5 Boilerplate technique, included in Bootstrap
-	@note Fixed a bug with position: static on iOS 10.0.2 + VoiceOver
-		@author Sylvain Pigeard
-		@see https://github.com/twbs/bootstrap/issues/20732
-*/
-.sr-only-focusable:focus,
-.sr-only-focusable:active {
-  clip: auto !important;
-  -webkit-clip-path: none !important;
-  clip-path: none !important;
-  height: auto !important;
-  margin: auto !important;
-  overflow: visible !important;
-  width: auto !important;
-  white-space: normal !important;
+a {
+	color: #3273dc;
+}
+nav a {
+	margin-right: 10px;
+}
+textarea {
+	width: 100%;
+	font-size: 16px;
+}
+input {
+	font-size: 16px;
+}
+content {
+	line-height: 1.6;
+}
+table {
+	width: 100%;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+code {
+	padding: 2px 5px;
+	background-color: #f2f2f2;
+}
+pre {
+	padding: 1rem;
+}
+pre > code {
+	all: unset;
+}
+blockquote {
+	border: 1px solid #999;
+	color: #222;
+	padding: 2px 0px 2px 20px;
+	margin: 0px;
+	font-style: italic;
 }
