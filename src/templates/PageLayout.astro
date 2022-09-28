@@ -1,5 +1,4 @@
 ---
-import '../styles/mixins.scss';
 import '../styles/reset.css';
 import '../styles/global.css';
 
@@ -22,8 +21,13 @@ const { title, slug } = Astro.props;
     />
     <style lang="scss">
       main {
-        @include grid;
+        // @include grid;
+        inline-size: min(
+          var(--grid-max-size, 80rem),
+          100vw - var(--site-padding, 2rem)
+        );
         margin-block: 4rem;
+        margin-inline: auto;
       }
     </style>
   </head>

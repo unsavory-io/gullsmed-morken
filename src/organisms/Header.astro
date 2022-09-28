@@ -12,23 +12,30 @@ const host = import.meta.env.APP_URL;
     <Link url={host}>
       <Logo />
     </Link>
-    <Navigation slug={slug} client:load />
+    <Navigation slug={slug} />
   </div>
 </header>
 
 <style lang="scss">
   header {
-    background-color: white; // var
-    border-block-end: 1px solid silver;
-    block-size: var(--header-height, 3.5rem);
-    display: flex;
     align-items: center;
+    background-color: hsl(var(--header-bg-color, 260 100% 13%));
+    // border-block-end: 1px solid silver;
+    block-size: var(--header-height, 3.5rem);
+    // display: flex;
+    padding: 1em;
+
+    @media (min-width: 40em) {
+      --header-height: 5rem;
+    }
   }
 
   div {
-    @include grid;
     align-items: center;
+    block-size: 100%;
     display: flex;
+    inline-size: min(80rem, 100vw - 2rem);
     justify-content: space-between;
+    margin-inline: auto;
   }
 </style>

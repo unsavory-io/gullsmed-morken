@@ -71,21 +71,21 @@ const { slug } = Astro.props;
         y1="0.6"
         x2="0.37915"
         y2="0.6"
-        stroke="#151618"
+        stroke="var(--icon-color, currentColor)"
         stroke-width="1.2"></line>
       <line
         x1="25.3792"
         y1="8.6"
         x2="0.37915"
         y2="8.6"
-        stroke="#151618"
+        stroke="var(--icon-color, currentColor)"
         stroke-width="1.2"></line>
       <line
         x1="25.3792"
         y1="16.6"
         x2="0.37915"
         y2="16.6"
-        stroke="#151618"
+        stroke="var(--icon-color, currentColor)"
         stroke-width="1.2"></line>
     </svg>
   </button>
@@ -103,6 +103,10 @@ const { slug } = Astro.props;
     const isOpen = button.getAttribute('aria-expanded') === 'false';
 
     button.setAttribute('aria-expanded', isOpen);
+
+    isOpen
+      ? (button.firstElementChild.innerText = 'Lukk')
+      : (button.firstElementChild.innerText = 'Åpne');
   });
 
   nav.addEventListener('keyup', (e) => {
@@ -162,13 +166,13 @@ const { slug } = Astro.props;
   }
 </style> -->
 
-<style>
+<style lang="scss">
   /* Define variables for your colors */
-  /* :root {
-    --color-shades-dark: rgb(25, 25, 25);
-    --color-shades-light: rgb(165, 167, 175);
-    --color-highlight: rgb(24, 54, 145);
-  } */
+  :root {
+    --color-shades-dark: hsl(0 0% 0%);
+    --color-shades-light: hsl(0 100% 100%);
+    --color-highlight: hsl(55 98% 52%);
+  }
 
   @media (min-width: 48em) {
     nav {
@@ -217,7 +221,7 @@ const { slug } = Astro.props;
 
   /* Remove default list styling and create layout for list */
   ul {
-    background: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
     box-shadow: var(--nav-list-shadow, -5px 0 11px 0 rgb(0 0 0 / 0.2));
     display: flex;
     flex-direction: var(--nav-list-layout, column);
@@ -232,6 +236,10 @@ const { slug } = Astro.props;
     inset-inline-end: 0; /* Logical property. Equivalent to right: 0; */
     width: var(--nav-list-width, min(22rem, 100vw));
     visibility: var(--nav-list-visibility, visible);
+
+    @media (min-width: 48em) {
+      background-color: transparent;
+    }
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -250,10 +258,14 @@ const { slug } = Astro.props;
   a {
     --text-color: var(--color-shades-dark);
 
-    border-block-end: 3px solid var(--border-color, transparent);
+    border-block-end: 1px solid var(--border-color, transparent);
     color: var(--text-color);
-    padding: 0.1rem;
+    padding: 0.125rem;
     text-decoration: none;
+
+    @media (min-width: 48em) {
+      --text-color: var(--color-shades-light);
+    }
   }
 
   /* Change the border-color on :hover and :focus */
@@ -269,6 +281,7 @@ const { slug } = Astro.props;
 
   /* Reset button styling */
   button {
+    --icon-color: white;
     all: unset;
     cursor: pointer;
     display: var(--nav-button-display, flex);
