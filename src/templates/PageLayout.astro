@@ -8,20 +8,20 @@ import Footer from '../organisms/Footer.astro';
 const { title, slug } = Astro.props;
 ---
 
-<html lang='nb-NO'>
+<html lang="nb-NO">
   <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width' />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
-    <link rel='preconnect' href='https://fonts.googleapis.com' />
-    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href='https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;400;600&display=swap'
-      rel='stylesheet'
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;400;600&display=swap"
+      rel="stylesheet"
     />
-    <style lang='scss'>
+    <style lang="scss">
       main {
-        @include grid;
+        // @include grid;
         margin-block: 4rem;
       }
     </style>
@@ -30,7 +30,7 @@ const { title, slug } = Astro.props;
   <body>
     <Header slug={slug} />
     <main>
-      <slot></slot>
+      <slot />
     </main>
     <Footer />
   </body>
