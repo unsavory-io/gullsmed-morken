@@ -12,7 +12,7 @@ const host = import.meta.env.APP_URL;
     <Link url={host}>
       <Logo />
     </Link>
-    <Navigation slug={slug} />
+    <Navigation slug={slug} client:load />
   </div>
 </header>
 
