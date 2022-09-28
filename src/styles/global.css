@@ -43,6 +43,19 @@ p + p {
   margin-block-start: 1em;
 }
 
+.content h2 {
+  font-size: clamp(1.5rem, 1.318rem + 0.91vw, 2rem);
+  line-height: 1.3;
+  margin-block: 1.5em;
+  margin-inline: auto;
+  max-inline-size: 32ch;
+  text-align: center;
+}
+
+.content div > * + * {
+  margin-block-start: var(--flow-space, 1em);
+}
+
 /*
 	Improved screen reader only CSS class
 	@author Gaël Poupard
