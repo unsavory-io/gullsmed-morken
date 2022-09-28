@@ -6,23 +6,27 @@ const categories = item.categories
   : [];
 ---
 
-<div class='card card__product'>
+<div class="card card__product">
   <a href={`/produkt/${item.slug.current}/`}>
     <figure>
       {item.image ? <img src={SanityImage(item.image).width(250).url()} /> : ''}
     </figure>
   </a>
-  {categories ? (
-    <ul class="tags">
-      {categories.map((category) => (
-        <li>
-          <a href={`/kategorier/${category.slug.current}/`}>{category.name}</a>
-        </li>
-      ))}
-    </ul>
-  ) : (
-    ''
-  )}
+  {
+    categories ? (
+      <ul class="tags">
+        {categories.map((category) => (
+          <li>
+            <a href={`/kategorier/${category.slug.current}/`}>
+              {category.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      ''
+    )
+  }
   <h3>{item.name}</h3>
   <span>Pris: {item.price},-</span>
   <p>{item.description}</p>
@@ -30,6 +34,6 @@ const categories = item.categories
 
 <style>
   .card {
-    border: 3px solid blue;
+    /* border: 3px solid blue; */
   }
 </style>

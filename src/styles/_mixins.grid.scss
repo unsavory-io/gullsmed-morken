@@ -1,7 +1,0 @@
-@mixin grid() {
-  inline-size: min(
-    var(--grid-max-size, 80rem),
-    100vw - var(--site-padding, 2rem)
-  );
-  margin-inline: auto;
-}

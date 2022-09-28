@@ -1,16 +1,59 @@
 :root {
   --bg-site: 53 69% 97%;
+  --bg-site: 0 100% 100%;
 
   --clr-text: 224 92% 15%;
 
-  --ff-body: 'Cormorant Infant', serif;
+  --ff-body: 'Cormorant Garamond', serif;
 }
 
 body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   background-color: hsl(var(--bg-site, 0 100% 100%));
   color: hsl(var(--clr-text, 0 0% 0%));
   font-family: var(--ff-body, sans-serif);
   font-weight: 400;
+}
+
+h1 {
+  font-size: clamp(2em, 1.455rem + 2.73vw, 3.5em);
+  font-size: clamp(1.5rem, 1.136rem + 1.82vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h1::after {
+  border-block-end: 2px solid currentColor;
+  content: '';
+  display: flex;
+  inline-size: 4ch;
+  margin-block: 1em;
+  margin-inline: auto;
+}
+
+p {
+  font-size: clamp(1.125rem, 1.034rem + 0.45vw, 1.375rem);
+}
+
+p + p {
+  margin-block-start: 1em;
+}
+
+.content h2 {
+  font-size: clamp(1.5rem, 1.318rem + 0.91vw, 2rem);
+  line-height: 1.3;
+  margin-block: 1.5em;
+  margin-inline: auto;
+  max-inline-size: 32ch;
+  text-align: center;
+}
+
+.content div > * + * {
+  margin-block-start: var(--flow-space, 1em);
 }
 
 /*
@@ -75,4 +118,8 @@ body {
   overflow: visible !important;
   width: auto !important;
   white-space: normal !important;
+}
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1rem);
 }

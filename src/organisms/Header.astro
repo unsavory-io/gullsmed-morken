@@ -4,30 +4,39 @@ import Logo from '../atoms/Logo.astro';
 import Navigation from '../molecules/Navigation.astro';
 
 const { slug } = Astro.props;
+const host = import.meta.env.APP_URL;
 ---
 
 <header>
   <div>
-    <Link url='//gullsmed-morken.no'>
+    <Link url={host}>
       <Logo />
     </Link>
     <Navigation slug={slug} />
   </div>
 </header>
 
-<style lang='scss'>
+<style>
   header {
-    background-color: white; // var
-    border-block-end: 1px solid silver;
-    block-size: var(--header-height, 3.5rem);
-    display: flex;
+    --logo-color: var(--color-highlight);
     align-items: center;
+    background-color: hsl(var(--header-bg-color, 260 100% 13%));
+    block-size: var(--header-height, 3.5rem);
+    padding: 1em;
+  }
+
+  @media (min-width: 40em) {
+    header {
+      --header-height: 5rem;
+    }
   }
 
   div {
-    @include grid;
     align-items: center;
+    block-size: 100%;
     display: flex;
+    inline-size: min(80rem, 100vw - 2rem);
     justify-content: space-between;
+    margin-inline: auto;
   }
 </style>
