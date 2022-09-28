@@ -16,14 +16,14 @@ const { title, slug } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
-    <style lang="scss">
+    <style>
       main {
-        // @include grid;
+        font-size: 1.25em;
         inline-size: min(
-          var(--grid-max-size, 80rem),
+          var(--grid-max-size, 80ch),
           100vw - var(--site-padding, 2rem)
         );
         margin-block: 4rem;
@@ -34,7 +34,7 @@ const { title, slug } = Astro.props;
 
   <body>
     <Header slug={slug} />
-    <main>
+    <main class="flow">
       <slot />
     </main>
     <Footer />

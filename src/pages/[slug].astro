@@ -1,7 +1,5 @@
 ---
 import { SanityClient, SanityImage, SanityBlocks } from '../lib/sanity';
-// import PageListing from '../components/PageListing.astro';
-// import ProductListing from '../components/ProductListing.astro';
 import PageLayout from '../templates/PageLayout.astro';
 
 export async function getStaticPaths() {
@@ -22,21 +20,10 @@ export async function getStaticPaths() {
 }
 
 const item = Astro.props;
-// const pages = await SanityClient.fetch(
-//   `*[ _type == "page" && _id != "${item._id}" ]{_id, title, image, slug}`
-// ).then((res) => res);
-// const products = await SanityClient.fetch(`*[ _type == "product"][0...4]`).then(
-//   (res) => res
-// );
 ---
 
 <PageLayout title={item.title} slug={item.slug.current}>
+  <h1>{item.title}</h1>
   {item.image ? <img src={SanityImage(item.image).width(800).url()} /> : ''}
-  <div class='content' set:html='item.body'></div>
-
-  <h3>Artikler</h3>
-  <!-- <PageListing items={pages} /> -->
-
-  <h3>Produkter</h3>
-  <!-- <ProductListing items={products} /> -->
+  <div class="content" set:html="item.body"></div>
 </PageLayout>

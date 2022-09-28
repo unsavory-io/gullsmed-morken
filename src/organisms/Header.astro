@@ -16,16 +16,17 @@ const host = import.meta.env.APP_URL;
   </div>
 </header>
 
-<style lang="scss">
+<style>
   header {
+    --logo-color: var(--color-highlight);
     align-items: center;
     background-color: hsl(var(--header-bg-color, 260 100% 13%));
-    // border-block-end: 1px solid silver;
     block-size: var(--header-height, 3.5rem);
-    // display: flex;
     padding: 1em;
+  }
 
-    @media (min-width: 40em) {
+  @media (min-width: 40em) {
+    header {
       --header-height: 5rem;
     }
   }
