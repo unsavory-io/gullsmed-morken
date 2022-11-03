@@ -1,0 +1,18 @@
+---
+import ManufacturCard from './ManufacturCard.astro';
+
+const { items } = Astro.props;
+---
+
+<div>
+  {items.map((item) => <ManufacturCard item={item} />)}
+</div>
+
+<style>
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    /* border: 10px solid salmon; */
+  }
+</style>

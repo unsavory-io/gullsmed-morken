@@ -3,6 +3,7 @@ import { SanityClient, SanityImage, SanityBlocks } from '../lib/sanity';
 import PageLayout from '../templates/PageLayout.astro';
 import PageListing from '../molecules/PageListing.astro';
 import ProductListing from '../molecules/ProductListing.astro';
+import ManufacturListing from '../molecules/ManufacturListing.astro';
 
 const item = await SanityClient.fetch('*[ _type == "front-page" ]').then(
   (res) => ({
@@ -19,6 +20,9 @@ const pages = await SanityClient.fetch(
 const products = await SanityClient.fetch(
   `*[ _type == "product"][0...4]{_id, name, price, image, slug}`
 ).then((res) => res);
+const manufacturers = await SanityClient.fetch(
+  `*[ _type == "manufacturer"][0...4]{_id, name, image}`
+).then((res) => res);
 ---
 
 <PageLayout title={item.title} slug="/">
@@ -28,6 +32,8 @@ const products = await SanityClient.fetch(
   {item.image ? <img src={SanityImage(item.image).width(800).url()} /> : ''}
   <div class="content" set:html="item.body" />
 
+  <h3>Våre merker</h3>
+  <ManufacturListing items={manufacturers} />
   <!--
     <h3>Artikler</h3>
     <PageListing items={pages} />
