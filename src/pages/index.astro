@@ -26,11 +26,13 @@ const products = await SanityClient.fetch(
   <h2>100 år med tradisjon og lidenskap i hjertet av Trondheim</h2>
 
   {item.image ? <img src={SanityImage(item.image).width(800).url()} /> : ''}
-  <div class="content" set:html="item.body"></div>
+  <div class="content" set:html="item.body" />
 
-  <h3>Artikler</h3>
-  <PageListing items={pages} />
+  <!--
+    <h3>Artikler</h3>
+    <PageListing items={pages} />
 
-  <h3>Produkter</h3>
-  <ProductListing items={products} />
+    <h3>Produkter</h3>
+    <ProductListing items={products} />
+   -->
 </PageLayout>

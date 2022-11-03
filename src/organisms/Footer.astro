@@ -2,6 +2,7 @@
 import Logo from '../atoms/Logo.astro';
 import Address from '../atoms/Address.astro';
 import OpeningHours from '../atoms/OpeningHours.astro';
+import Email from '../atoms/Email.astro';
 import PhoneNumber from '../atoms/PhoneNumber.astro';
 import SoMe from '../molecules/SoMe.astro';
 ---
@@ -9,28 +10,56 @@ import SoMe from '../molecules/SoMe.astro';
 <footer>
   <div>
     <Logo />
-    <SoMe />
-    <Address />
-    <PhoneNumber />
-    <OpeningHours />
+    <div>
+      <div>
+        <h3>Besøksadresse</h3>
+        <Address />
+      </div>
+
+      <div>
+        <h3>Telefon</h3>
+        <PhoneNumber />
+      </div>
+
+      <div>
+        <h3>E-post</h3>
+        <Email />
+      </div>
+    </div>
+
+    <div>
+      <h3>Åpningstider</h3>
+      <OpeningHours />
+    </div>
+
+    <div>
+      <h3>Sosiale medier</h3>
+      <SoMe />
+    </div>
   </div>
 </footer>
 
 <style>
   footer {
-    --logo-color: #000;
-    background-color: hsl(53 69% 97%);
+    background-color: #fafafb;
+    color: #272035;
+    font-size: 20px;
     padding-block: 2rem;
   }
 
-  div {
-    inline-size: min(80rem, 100vw - 2rem);
-    margin-inline: auto;
-
+  footer > div {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
+    inline-size: min(80rem, 100vw - 2rem);
+    margin-inline: auto;
+  }
 
-    --icon-color: #000;
+  h3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+      sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
 </style>

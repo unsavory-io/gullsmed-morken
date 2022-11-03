@@ -18,10 +18,11 @@ const host = import.meta.env.APP_URL;
 
 <style>
   header {
-    --logo-color: var(--color-highlight);
     align-items: center;
     background-color: hsl(var(--header-bg-color, 260 100% 13%));
-    block-size: var(--header-height, 3.5rem);
+    background-color: #fff;
+    min-block-size: var(--header-height, 3.5rem);
+    border-block-end: 1px solid #14043320;
     padding: 1em;
   }
 

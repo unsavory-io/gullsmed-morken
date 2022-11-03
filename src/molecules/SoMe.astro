@@ -9,5 +9,11 @@ const some = await SanityClient.fetch('*[ _type == "settingsSome" ]').then(
 );
 ---
 
-<Facebook fbUrl={some.facebook} />
-<Instagram igUrl={some.instagram} />
+<ul role="list">
+  <li>
+    <Facebook fbUrl={some.facebook} />
+  </li>
+  <li>
+    <Instagram igUrl={some.instagram} />
+  </li>
+</ul>

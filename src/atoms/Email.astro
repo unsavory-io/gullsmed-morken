@@ -6,9 +6,4 @@ const contact = await SanityClient.fetch(
 ).then((res) => res[0]);
 ---
 
-<address>
-  {contact.address}, {contact.zip}
-  {contact.city}
-</address>
-
-<style></style>
+<a href={'mailto:' + contact.email}>{contact.email}</a>
