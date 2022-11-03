@@ -39,7 +39,7 @@ const { slug } = Astro.props;
       items.map((item) => (
         <li>
           <a
-            href={item.slug === '' ? '/' : `/${item.slug}/`}
+            href={item.slug === '' ? '/' : `/${item.slug}`}
             aria-current={slug === item.slug ? 'page' : 'false'}
           >
             {item.title}
