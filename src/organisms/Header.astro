@@ -7,7 +7,7 @@ const { slug } = Astro.props;
 const host = import.meta.env.APP_URL;
 ---
 
-<header>
+<header class={slug}>
   <div>
     <Link url={host}>
       <Logo />
@@ -19,8 +19,8 @@ const host = import.meta.env.APP_URL;
 <style>
   header {
     align-items: center;
-    background-color: hsl(var(--header-bg-color, 260 100% 13%));
     background-color: #fff;
+    background-color: hsl(var(--header-bg-color, 0 0% 100%));
     min-block-size: var(--header-height, 3.5rem);
     border-block-end: 1px solid #14043320;
     padding: 1em;
@@ -30,6 +30,10 @@ const host = import.meta.env.APP_URL;
     header {
       --header-height: 5rem;
     }
+  }
+
+  header.om-butikken {
+    --header-bg-color: 210 2% 78% / 0.1;
   }
 
   div {

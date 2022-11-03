@@ -5,15 +5,15 @@ const items = [
   //   title: 'Forsiden',
   // },
   {
-    slug: 'produkter',
+    slug: '#',
     title: 'Produkter',
   },
   {
-    slug: 'diamanter',
+    slug: '#',
     title: 'Diamanter',
   },
   {
-    slug: 'tips',
+    slug: '#',
     title: 'Tips',
   },
   {
@@ -21,11 +21,11 @@ const items = [
     title: 'Om butikken',
   },
   {
-    slug: 'kontakt',
+    slug: '#',
     title: 'Kontakt',
   },
   {
-    slug: 'aapningstider',
+    slug: '#',
     title: 'Åpningstider',
   },
 ];
@@ -49,7 +49,7 @@ const { slug } = Astro.props;
     }
   </ul>
 </nav>
-
+<!--
 <template id="burger-template">
   <button
     type="button"
@@ -118,8 +118,8 @@ const { slug } = Astro.props;
 
   nav.insertBefore(burgerClone, list);
 </script>
-
-<style>
+ -->
+<!-- <style>
   /* Define variables for your colors */
   /* :root {
     --color-shades-dark: hsl(0 0% 0%);
@@ -299,3 +299,16 @@ const { slug } = Astro.props;
     border-block-end: 2px solid tomato;
   }
 </style> -->
+
+<style>
+  ul {
+    column-gap: 1em;
+    display: flex;
+    font-size: 20px;
+  }
+
+  a[aria-current='page'] {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+</style>

@@ -44,6 +44,7 @@ import SoMe from '../molecules/SoMe.astro';
     background-color: #fafafb;
     color: #272035;
     font-size: 20px;
+    font-variant-numeric: tabular-nums;
     padding-block: 2rem;
   }
 
@@ -52,7 +53,14 @@ import SoMe from '../molecules/SoMe.astro';
     flex-wrap: wrap;
     gap: 2rem;
     inline-size: min(80rem, 100vw - 2rem);
+    justify-content: space-between;
     margin-inline: auto;
+  }
+
+  footer > div > div {
+    display: grid;
+    align-content: start;
+    row-gap: 0.5rem;
   }
 
   h3 {
