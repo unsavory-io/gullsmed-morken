@@ -1,42 +1,16 @@
 ---
 import { SanityImage } from '../lib/sanity';
 const { item } = Astro.props;
-// const manufacturers = item.manufacturers
-//   ? item.manufacturers.filter((e) => e.slug != null)
-//   : [];
-// console.log(manufacturers);
 ---
 
-{item.name}
-<!--
-<div class="card card__product">
-  <a href={`/produkt/${item.slug.current}/`}>
-    <figure>
-      {item.image ? <img src={SanityImage(item.image).width(250).url()} /> : ''}
-    </figure>
-  </a>
+<li>
   {
-    manufacturers ? (
-      <ul class="tags">
-        {manufacturers.map((manufacturer) => (
-          <li>
-            <a href={`/kategorier/${manufacturer.slug.current}/`}>
-              {manufacturers.name}
-            </a>
-          </li>
-        ))}
-      </ul>
+    item.image ? (
+      <figure>
+        <img src={SanityImage(item.image).width(160).url()} />
+      </figure>
     ) : (
-      ''
+      item.name
     )
   }
-  <h3>{item.name}</h3>
-  <span>Pris: {item.price},-</span>
-  <p>{item.description}</p>
-</div>
-
-<style>
-  .card {
-    /* border: 3px solid blue; */
-  }
-</style> -->
+</li>

@@ -4,15 +4,16 @@ import ManufacturCard from './ManufacturCard.astro';
 const { items } = Astro.props;
 ---
 
-<div>
+<ul>
   {items.map((item) => <ManufacturCard item={item} />)}
-</div>
+</ul>
 
 <style>
-  div {
-    display: flex;
-    flex-wrap: wrap;
+  ul {
+    display: grid;
+    /* flex-wrap: wrap; */
     gap: 2rem;
-    /* border: 10px solid salmon; */
+    list-style-type: none;
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 12rem));
   }
 </style>
