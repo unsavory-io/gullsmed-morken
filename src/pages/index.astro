@@ -13,12 +13,6 @@ const item = await SanityClient.fetch('*[ _type == "front-page" ]').then(
   })
 );
 
-// const pages = await SanityClient.fetch(
-//   `*[ _type == "page"][0...4]{_id, title, image, slug}`
-// ).then((res) => res);
-// const products = await SanityClient.fetch(
-//   `*[ _type == "product"][0...4]{_id, name, price, image, slug}`
-// ).then((res) => res);
 const manufacturers = await SanityClient.fetch(
   `*[ _type == "manufacturer"]{_id, name, image, url, slug} | order(name asc)`
 ).then((res) => res);
@@ -33,19 +27,4 @@ const manufacturers = await SanityClient.fetch(
 
   <Title title="Våre merker" tag="h3" />
   <ManufacturListing items={manufacturers} />
-
-  <!--
-    <h3>Artikler</h3>
-    <PageListing items={pages} />
-
-    <h3>Produkter</h3>
-    <ProductListing items={products} />
-   -->
 </PageLayout>
-
-<style>
-  h3 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
-      sans-serif;
-  }
-</style>
