@@ -63,7 +63,7 @@ h3 {
 }
 
 :any-link {
-  color: currentColor;
+  /* color: currentColor; */
   text-decoration: none;
 }
 

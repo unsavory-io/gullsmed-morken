@@ -2,15 +2,17 @@
 const { url, target } = Astro.props;
 ---
 
-{target ? (
-  <a href={url} target={target}>
-    <slot />
-  </a>
-) : (
-  <a href={url}>
-    <slot />
-  </a>
-)}
+{
+  target ? (
+    <a href={url} target={target}>
+      <slot />
+    </a>
+  ) : (
+    <a href={url}>
+      <slot />
+    </a>
+  )
+}
 
 <style>
   a {
