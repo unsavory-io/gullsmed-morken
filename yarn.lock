@@ -10,10 +10,10 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@astrojs/compiler@^0.29.11":
-  version "0.29.13"
-  resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.29.13.tgz#86910920301f90bc9eadaae65a88e2903e575fa1"
-  integrity sha512-C9+91vsWiJspj/VkVp6UtSIrJGuj/Aia1KCEDzg2Ge27uSDCOl1QlUQuAAnAbGpFBF71uaYOUZOPCbptQeGbdQ==
+"@astrojs/compiler@^0.29.15":
+  version "0.29.17"
+  resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.29.17.tgz#5c65e18fd5dde9620dcc1794a858609b66408215"
+  integrity sha512-6ZbRGVunUMHxROD9Cleqkrfrj/kM9o43nLVwycdxCexCB5G372evy2ZM46LhaG/k5B5yC0PByNHTaGny0ll3iQ==
 
 "@astrojs/compiler@^0.29.3":
   version "0.29.9"
@@ -619,15 +619,15 @@
   resolved "https://registry.yarnpkg.com/@netlify/binary-info/-/binary-info-1.0.0.tgz#cd0d86fb783fb03e52067f0cd284865e57be86c8"
   integrity sha512-4wMPu9iN3/HL97QblBsBay3E1etIciR84izI3U+4iALY+JHCrI+a2jO0qbAZ/nxKoegypYEaiiqWXylm+/zfrw==
 
-"@netlify/build@^28.1.11":
-  version "28.1.12"
-  resolved "https://registry.yarnpkg.com/@netlify/build/-/build-28.1.12.tgz#cb40f1fee38e44bb677d19e1a499bbadf609a4fb"
-  integrity sha512-5jt1FyJE6sJwqZBmzsyqbf+LjOi2887guAIJ3HKsWANmULD/a59RUG5kSBpwHLBHy26NYbUY3Q93+6njVGraRg==
+"@netlify/build@^28.1.13":
+  version "28.1.15"
+  resolved "https://registry.yarnpkg.com/@netlify/build/-/build-28.1.15.tgz#a7b7fa071f8382c1e967476b4de96fc0afb458ef"
+  integrity sha512-1iAl+ni8NhQY7z0yEmPZtyoMLONKk26j1ntgHHtFV17Gwj8NzkqhSULTNhz+z004RY6PGgTLXUfNI76r8APsMA==
   dependencies:
     "@bugsnag/js" "^7.0.0"
     "@netlify/cache-utils" "^5.0.1"
-    "@netlify/config" "^19.1.2"
-    "@netlify/edge-bundler" "^3.1.1"
+    "@netlify/config" "^20.0.0"
+    "@netlify/edge-bundler" "4.0.2"
     "@netlify/functions-utils" "^5.0.3"
     "@netlify/git-utils" "^5.0.1"
     "@netlify/plugins-list" "^6.54.0"
@@ -694,10 +694,10 @@
     path-exists "^5.0.0"
     readdirp "^3.4.0"
 
-"@netlify/config@^19.1.2":
-  version "19.1.2"
-  resolved "https://registry.yarnpkg.com/@netlify/config/-/config-19.1.2.tgz#29cc47e7114a2ad21afdc39a90d13100214b6669"
-  integrity sha512-PdE1WPDGulPs6yPJGePsFYws85B3n+kDP3fhSVwIflltBKsdPO9HB7MyGB5zOnLtPXG+u9QankMZCJa8Zm7xZQ==
+"@netlify/config@^20.0.0":
+  version "20.0.0"
+  resolved "https://registry.yarnpkg.com/@netlify/config/-/config-20.0.0.tgz#a0a895ed6049341fd46d8c30c67955ba2a28af91"
+  integrity sha512-Yp2+xejtJ2sSmrEZ8S4Q5zsBQdOd5Lz0+1Kv0+AahChMzURWKzXzz9lKqkKY9fIOCJDRVuFcVi1koc+U/dt13g==
   dependencies:
     chalk "^5.0.0"
     cron-parser "^4.1.0"
@@ -724,10 +724,32 @@
     validate-npm-package-name "^4.0.0"
     yargs "^17.6.0"
 
-"@netlify/edge-bundler@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@netlify/edge-bundler/-/edge-bundler-3.1.1.tgz#dee0033474f54e850aa8fdba28c3bb3ab957e673"
-  integrity sha512-6GuIf847XDCiYi7TYwxJhvXxLzlUEpwq89StQAuRj6uFjZvmNkvPnyngIt0w2u/pT6JwFZemyKpPhONMkTJl1Q==
+"@netlify/edge-bundler@4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@netlify/edge-bundler/-/edge-bundler-4.0.2.tgz#f95503872dcdae4fa1a166640bc8cf39fc01e6ad"
+  integrity sha512-LeSS3zbk9polFe6wQIEDgtNIOmVzT0xQOsGVIUjOvbLmTkZ8M2Jv/YKMJ8ckqNnBeiNEV0VZ3KddyoD8W0BOiw==
+  dependencies:
+    "@import-maps/resolve" "^1.0.1"
+    common-path-prefix "^3.0.0"
+    del "^7.0.0"
+    env-paths "^3.0.0"
+    execa "^6.0.0"
+    find-up "^6.3.0"
+    get-port "^6.1.2"
+    glob-to-regexp "^0.4.1"
+    node-fetch "^3.1.1"
+    node-stream-zip "^1.15.0"
+    p-retry "^5.1.1"
+    p-wait-for "^4.1.0"
+    path-key "^4.0.0"
+    semver "^7.3.5"
+    tmp-promise "^3.0.3"
+    uuid "^9.0.0"
+
+"@netlify/edge-bundler@^4.0.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@netlify/edge-bundler/-/edge-bundler-4.1.0.tgz#285cd6565e87e7ed290617ee3166d2ae50b9a48e"
+  integrity sha512-bhzZVh2EAn4pcW0dr1fD3WOVh16BTrYf2AjdhxesxP7WQQavZ+z2UHBZK7Jh4sHgYGsHaMjOyFx6wYSt/Qi+PA==
   dependencies:
     "@import-maps/resolve" "^1.0.1"
     common-path-prefix "^3.0.0"
@@ -2191,10 +2213,10 @@ astring@^1.8.0:
   resolved "https://registry.yarnpkg.com/astring/-/astring-1.8.3.tgz#1a0ae738c7cc558f8e5ddc8e3120636f5cebcb85"
   integrity sha512-sRpyiNrx2dEYIMmUXprS8nlpRg2Drs8m9ElX9vVEXaCB4XEAJhKfs7IcX0IwShjuOAjLR6wzIrgoptz1n19i1A==
 
-astro-compress@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/astro-compress/-/astro-compress-1.1.5.tgz#4c66c1f124804c2f70a66cbd47460af155c24767"
-  integrity sha512-Lp1BvKivu2MsAk3dbnNOnrpTcsM0Pn0aNt9aWSLAxuFqsXT3bj2L0lCWaCNBgDQ2j7FJtM8CrN2wITBRmspFHQ==
+astro-compress@^1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/astro-compress/-/astro-compress-1.1.7.tgz#4a8c49420dc56852b00c760cc4d6505429139238"
+  integrity sha512-wz35oDYQMjWb00SNpppOGRR5ccyiLQGzjXTcxcrpRgfQjQVaq2EvT1dUnRxb5bC5ExFqENRC1rH9CIKQWY2T0A==
   dependencies:
     csso "5.0.5"
     deepmerge-ts "4.2.2"
@@ -2204,12 +2226,12 @@ astro-compress@^1.1.5:
     svgo "3.0.1"
     terser "5.15.1"
 
-astro@^1.6.7:
-  version "1.6.7"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-1.6.7.tgz#47b2dbf70034255cfcde5770b2203550fc02e426"
-  integrity sha512-xx910blM5qfSMyesmVmuhXqKMIOa2WL/WTSfYv84pB9JocgtAfGKlmS1HZNqWd0h9YLreYbGRzXhbtv2Qfd8vw==
+astro@^1.6.9:
+  version "1.6.9"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-1.6.9.tgz#08d7aed72168f8f45fc46e3ac47dd1a8ac0e2bbc"
+  integrity sha512-KXFKXobe8MIYl4gduUPLcAazMz+thox6N1pOv3F3QMbJS5rMRXkWloVK/6XebBO7p3DYkOfOGB4qA9ijTc4ftA==
   dependencies:
-    "@astrojs/compiler" "^0.29.11"
+    "@astrojs/compiler" "^0.29.15"
     "@astrojs/language-server" "^0.28.3"
     "@astrojs/markdown-remark" "^1.1.3"
     "@astrojs/telemetry" "^1.0.1"
@@ -2266,8 +2288,8 @@ astro@^1.6.7:
     typescript "*"
     unist-util-visit "^4.1.0"
     vfile "^5.3.2"
-    vite "~3.2.1"
-    vitefu "^0.1.0"
+    vite "~3.2.4"
+    vitefu "^0.2.1"
     yargs-parser "^21.0.1"
     zod "^3.17.3"
 
@@ -8117,14 +8139,14 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0, nested-error-stacks@^2.1
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.1.tgz#26c8a3cee6cc05fbcf1e333cd2fc3e003326c0b5"
   integrity sha512-9iN1ka/9zmX1ZvLV9ewJYEk9h7RyRRtqdK0woXcqohu8EWIerfPUjYJPg0ULy0UqP7cslmdGc8xKDJcojlKiaw==
 
-netlify-cli@^12.1.1:
-  version "12.1.1"
-  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-12.1.1.tgz#643d47f1bfea2ea2e7042105913bdf0b173946c3"
-  integrity sha512-AVnxqMZQUQenkEA+bMaJdkoJ8elhADbqaGaDbQpYZRK+F+Bl7Q8byBdyxvOUfPLygx7leZzyv80KdeUP9hH/vw==
+netlify-cli@^12.2.0:
+  version "12.2.0"
+  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-12.2.0.tgz#13e2ec029c87c296365ab29fab57b653a172ad7f"
+  integrity sha512-zonLvGgqiTN3f/tm6bnii4VFEciKFRwCvaa2WPr85buxpxO3SKRixi+yGf1h61erUSnjKIHCj8JU4hcezmwacQ==
   dependencies:
-    "@netlify/build" "^28.1.11"
-    "@netlify/config" "^19.1.2"
-    "@netlify/edge-bundler" "^3.1.1"
+    "@netlify/build" "^28.1.13"
+    "@netlify/config" "^20.0.0"
+    "@netlify/edge-bundler" "^4.0.0"
     "@netlify/framework-info" "^9.5.0"
     "@netlify/local-functions-proxy" "^1.1.1"
     "@netlify/zip-it-and-ship-it" "^8.1.0"
@@ -11670,10 +11692,10 @@ vfile@^5.0.0, vfile@^5.3.2:
     unist-util-stringify-position "^3.0.0"
     vfile-message "^3.0.0"
 
-vite@~3.2.1:
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-3.2.3.tgz#7a68d9ef73eff7ee6dc0718ad3507adfc86944a7"
-  integrity sha512-h8jl1TZ76eGs3o2dIBSsvXDLb1m/Ec1iej8ZMdz+PsaFUsftZeWe2CZOI3qogEsMNaywc17gu0q6cQDzh/weCQ==
+vite@~3.2.4:
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-3.2.4.tgz#d8c7892dd4268064e04fffbe7d866207dd24166e"
+  integrity sha512-Z2X6SRAffOUYTa+sLy3NQ7nlHFU100xwanq1WDwqaiFiCe+25zdxP1TfCS5ojPV2oDDcXudHIoPnI1Z/66B7Yw==
   dependencies:
     esbuild "^0.15.9"
     postcss "^8.4.18"
@@ -11682,10 +11704,10 @@ vite@~3.2.1:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vitefu@^0.1.0:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/vitefu/-/vitefu-0.1.1.tgz#d12f2d6650c618cc3dfd9f3b331b3b6923bbe364"
-  integrity sha512-HClD14fjMJ+NQgXBqT3dC3RdO/+Chayil+cCPYZKY3kT+KcJomKzrdgzfCHJkIL2L0OAY+VPvrSW615iPtc7ag==
+vitefu@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/vitefu/-/vitefu-0.2.1.tgz#9dcd78737c77b366206706dac2403a751903907d"
+  integrity sha512-clkvXTAeUf+XQKm3bhWUhT4pye+3acm6YCTGaWhxxIvZZ/QjnA3JA8Zud+z/mO5y5XYvJJhevs5Sjkv/FI8nRw==
 
 vscode-css-languageservice@^6.0.1:
   version "6.1.1"
