@@ -5,7 +5,7 @@ const { items } = Astro.props;
 ---
 
 <ul>
-  {items.map((item) => <ManufacturCard item={item} />)}
+  {items.map((item: any) => <ManufacturCard item={item} />)}
 </ul>
 
 <style>

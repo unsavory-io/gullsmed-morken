@@ -1,6 +1,6 @@
 import sanity from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
-import blocksToHtml from '@sanity/block-content-to-html';
+import { toHTML } from '@portabletext/to-html';
 
 const SanityClient = sanity({
   projectId: '3o18olen',
@@ -11,6 +11,6 @@ const SanityClient = sanity({
 
 const builder = imageUrlBuilder(SanityClient);
 const SanityImage = (source) => builder.image(source);
-const SanityBlocks = (options) => blocksToHtml(options);
+const SanityBlocks = (blocks, options) => toHTML(blocks, options);
 
 export { SanityClient, SanityImage, SanityBlocks };

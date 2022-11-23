@@ -7,13 +7,17 @@ export async function getStaticPaths() {
     '*[_type == "page"] { ..., body[] {...,  asset-> {..., "_key": _id } }}'
   ).then((res) => res);
 
-  return items.map((e) => ({
-    params: { slug: e.slug.current },
+  return items.map((item: any) => ({
+    params: { slug: item.slug.current },
     props: {
-      ...e,
-      body: SanityBlocks({
-        blocks: e.body,
-        imageOptions: { w: 780, fit: 'max' },
+      ...item,
+      body: SanityBlocks(item.body, {
+        components: {
+          types: {
+            image: ({ value }: { value: any }) =>
+              `<img src="${SanityImage(value).width(800).url()}" />`,
+          },
+        },
       }),
     },
   }));
@@ -25,5 +29,5 @@ const item = Astro.props;
 <PageLayout title={item.title} slug={item.slug.current}>
   <h1>{item.title}</h1>
   {item.image ? <img src={SanityImage(item.image).width(800).url()} /> : ''}
-  <div class="content" set:html="item.body"></div>
+  <div class="content" set:html="item.body" />
 </PageLayout>

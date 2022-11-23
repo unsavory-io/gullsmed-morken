@@ -1,17 +1,29 @@
 ---
-import { SanityClient, SanityImage } from '../../lib/sanity';
+import { SanityClient, SanityImage, SanityBlocks } from '../../lib/sanity';
 import PageLayout from '../../templates/PageLayout.astro';
 import PageListing from '../../molecules/PageListing.astro';
 import ProductListing from '../../molecules/ProductListing.astro';
 
 export async function getStaticPaths() {
-  const items = await SanityClient.fetch('*[_type == "product"]').then(
-    (res) => res
-  );
+  const items = await SanityClient.fetch(
+    '*[_type == "manufacturer"] { ..., body[] {..., asset-> {..., "_key": _id } }}'
+  ).then((res) => res);
 
   return items.map((item: any) => ({
     params: { slug: item.slug.current },
-    props: { item },
+    props: {
+      item: {
+        ...item,
+        body: SanityBlocks(item.body, {
+          components: {
+            types: {
+              image: ({ value }: { value: any }) =>
+                `<img src="${SanityImage(value).width(400).url()}" />`,
+            },
+          },
+        }),
+      },
+    },
   }));
 }
 
@@ -22,14 +34,15 @@ const pages = await SanityClient.fetch(
 ).then((res) => res);
 
 const products = await SanityClient.fetch(
-  `*[ _type == "product" && _id != "${item._id}" ][0...8]{_id, name, price, image, slug}`
+  `*[ _type == "product" && references(*[_type=="manufacturer" && slug.current == "${item.slug.current}"]._id)] [0...8]{_id, name, price, image, slug}`
 ).then((res) => res);
 ---
 
 <PageLayout title={item.title} slug={item.slug.current}>
   {item.image ? <img src={SanityImage(item.image).width(800).url()} /> : ''}
   <h2>{item.name}</h2>
-  <span>Pris: {item.price},-</span>
+
+  <div class="content" set:html="item.body" />
 
   <h3>Siste produkter</h3>
   <ProductListing items={products} />

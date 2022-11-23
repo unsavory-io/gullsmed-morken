@@ -7,8 +7,13 @@ import ManufacturListing from '../molecules/ManufacturListing.astro';
 const item = await SanityClient.fetch('*[ _type == "front-page" ]').then(
   (res) => ({
     ...res[0],
-    body: SanityBlocks({
-      blocks: res[0].body,
+    body: SanityBlocks(res[0].body, {
+      components: {
+        types: {
+          image: ({ value }: { value: any }) =>
+            `<img src="${SanityImage(value).width(400).url()}" />`,
+        },
+      },
     }),
   })
 );

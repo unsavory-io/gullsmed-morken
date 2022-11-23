@@ -4,13 +4,15 @@ const { item } = Astro.props;
 ---
 
 <li>
-  {
-    item.image ? (
-      <figure>
-        <img src={SanityImage(item.image).width(160).url()} />
-      </figure>
-    ) : (
-      item.name
-    )
-  }
+  <a href={`/merker/${item.slug.current}/`}>
+    {
+      item.image ? (
+        <figure>
+          <img src={SanityImage(item.image).width(160).url()} />
+        </figure>
+      ) : (
+        item.name
+      )
+    }
+  </a>
 </li>
